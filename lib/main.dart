@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: HomePage(),
     );
@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
         ],
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Text(
+        title: const Text(
           'Fashion Design',
           style: TextStyle(
             color: Colors.deepPurple,
@@ -53,12 +53,64 @@ class _HomePageState extends State<HomePage> {
             height: 150,
             width: double.infinity,
             child: ListView(
-              padding: EdgeInsets.all(12),
+              padding: const EdgeInsets.all(12),
               scrollDirection: Axis.horizontal,
               children: [
                 listElement(
                   'assets/images/model-1.jpg',
                   'assets/images/chanellogo.jpg',
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                listElement(
+                  'assets/images/model-2.jpg',
+                  'assets/images/chanellogo.jpg',
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                listElement(
+                  'assets/images/model-3.jpg',
+                  'assets/images/chanellogo.jpg',
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                listElement(
+                  'assets/images/model-4.jpg',
+                  'assets/images/chanellogo.jpg',
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                listElement(
+                  'assets/images/model-1.jpg',
+                  'assets/images/chanellogo.jpg',
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                listElement(
+                  'assets/images/model-2.jpg',
+                  'assets/images/chanellogo.jpg',
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                listElement(
+                  'assets/images/model-3.jpg',
+                  'assets/images/chanellogo.jpg',
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                listElement(
+                  'assets/images/model-4.jpg',
+                  'assets/images/chanellogo.jpg',
+                ),
+                const SizedBox(
+                  width: 10,
                 ),
               ],
             ),
@@ -74,7 +126,7 @@ class _HomePageState extends State<HomePage> {
         Stack(
           children: [
             Container(
-              padding: EdgeInsets.all(12),
+              padding: const EdgeInsets.all(12),
               height: 75,
               width: 75,
               decoration: BoxDecoration(
@@ -86,9 +138,46 @@ class _HomePageState extends State<HomePage> {
                   fit: BoxFit.cover,
                 ),
               ),
-            )
+            ),
+            Positioned(
+              top: 50,
+              left: 45,
+              child: Container(
+                padding: const EdgeInsets.all(12),
+                height: 25,
+                width: 25,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  image: DecorationImage(
+                    image: AssetImage(
+                      logoPath,
+                    ),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ),
           ],
-        )
+        ),
+        const SizedBox(
+          height: 12,
+        ),
+        Container(
+          height: 25,
+          width: 75,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25),
+            color: Colors.deepPurple,
+          ),
+          child: const Center(
+            child: Text(
+              'Follow',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ),
       ],
     );
   }
