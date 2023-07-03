@@ -1,3 +1,4 @@
+import 'package:fashion_app/detail_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -23,10 +24,67 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
+  late TabController tabController;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    tabController = TabController(length: 4, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    tabController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: Material(
+        color: Colors.white,
+        child: TabBar(
+          indicatorColor: Colors.transparent,
+          controller: tabController,
+          tabs: [
+            Tab(
+              icon: Icon(
+                Icons.more,
+                color: Colors.purple.withOpacity(
+                  0.3,
+                ),
+              ),
+            ),
+            Tab(
+              icon: Icon(
+                Icons.play_arrow,
+                color: Colors.purple.withOpacity(
+                  0.3,
+                ),
+              ),
+            ),
+            Tab(
+              icon: Icon(
+                Icons.navigation,
+                color: Colors.purple.withOpacity(
+                  0.3,
+                ),
+              ),
+            ),
+            Tab(
+              icon: Icon(
+                Icons.supervised_user_circle,
+                color: Colors.purple.withOpacity(
+                  0.3,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
       appBar: AppBar(
         actions: [
           IconButton(
@@ -49,7 +107,6 @@ class _HomePageState extends State<HomePage> {
       body: ListView(
         children: [
           Container(
-            color: Colors.pink.shade300,
             height: 150,
             width: double.infinity,
             child: ListView(
@@ -119,13 +176,12 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.all(15),
             child: Material(
               elevation: 5,
-              color: Colors.deepPurple.shade200,
               borderRadius: BorderRadius.circular(
                 15,
               ),
               child: Container(
                 width: double.infinity,
-                height: 450,
+                height: 480,
                 padding: const EdgeInsets.all(15),
                 child: Column(
                   children: [
@@ -173,6 +229,204 @@ class _HomePageState extends State<HomePage> {
                           color: Colors.deepPurple,
                           size: 24,
                         ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    const Text(
+                      'lorem ipsum dolor sit amet,',
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          flex: 3,
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => DetailPage(
+                                    img: 'assets/images/big-1.jpg',
+                                  ),
+                                ),
+                              );
+                            },
+                            child: Hero(
+                              tag: 'assets/images/big-1.jpg',
+                              child: Container(
+                                height: 200,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  image: const DecorationImage(
+                                    image: AssetImage(
+                                      'assets/images/big-1.jpg',
+                                    ),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 20,
+                        ),
+                        Expanded(
+                          flex: 2,
+                          child: Column(
+                            children: [
+                              InkWell(
+                                onTap: () {
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (context) => DetailPage(
+                                        img: 'assets/images/big-2.jpg',
+                                      ),
+                                    ),
+                                  );
+                                },
+                                child: Hero(
+                                  tag: 'assets/images/big-2.jpg',
+                                  child: Container(
+                                    height: 90,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      image: const DecorationImage(
+                                        image: AssetImage(
+                                          'assets/images/big-2.jpg',
+                                        ),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              InkWell(
+                                onTap: () {
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (context) => DetailPage(
+                                        img: 'assets/images/big-3.jpg',
+                                      ),
+                                    ),
+                                  );
+                                },
+                                child: Hero(
+                                  tag: 'assets/images/big-3.jpg',
+                                  child: Container(
+                                    height: 90,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      image: const DecorationImage(
+                                        image: AssetImage(
+                                          'assets/images/big-3.jpg',
+                                        ),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 20,
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      children: [
+                        Container(
+                          height: 25,
+                          width: 100,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(
+                              15,
+                            ),
+                            color: Colors.deepPurple.withOpacity(
+                              0.3,
+                            ),
+                          ),
+                          child: Center(
+                            child: Text(
+                              '#Lorem Ipsum',
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        Container(
+                          height: 25,
+                          width: 100,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(
+                              15,
+                            ),
+                            color: Colors.deepPurple.withOpacity(
+                              0.3,
+                            ),
+                          ),
+                          child: Center(
+                            child: Text(
+                              '#Lorem',
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Divider(),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.replay_sharp,
+                          color: Colors.deepPurple,
+                          size: 22,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text('2,1k'),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        Icon(
+                          Icons.comment,
+                          color: Colors.deepPurple,
+                          size: 22,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text('100'),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        Icon(
+                          Icons.favorite,
+                          color: Colors.red,
+                          size: 22,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text('200'),
                       ],
                     )
                   ],
