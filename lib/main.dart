@@ -114,6 +114,71 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(15),
+            child: Material(
+              elevation: 5,
+              color: Colors.deepPurple.shade200,
+              borderRadius: BorderRadius.circular(
+                15,
+              ),
+              child: Container(
+                width: double.infinity,
+                height: 450,
+                padding: const EdgeInsets.all(15),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          width: 75,
+                          height: 75,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(
+                              40,
+                            ),
+                            image: const DecorationImage(
+                              image: AssetImage(
+                                'assets/images/model-1.jpg',
+                              ),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 15,
+                        ),
+                        Container(
+                          child: const Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Daisy',
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                'A few minutes ago',
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 100,
+                        ),
+                        const Icon(
+                          Icons.more_vert,
+                          color: Colors.deepPurple,
+                          size: 24,
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
           )
         ],
       ),
